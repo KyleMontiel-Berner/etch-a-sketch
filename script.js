@@ -7,7 +7,9 @@ button.textContent = "Click Me!"
 button.addEventListener('click', ()=> {
     let userInput = prompt("How many squares per side?");
     let squaresPerSide = Number(userInput);
-    renderNewGrid(squaresPerSide);
+    while (squaresPerSide > 100) {
+        squaresPerSide = prompt(`Try again mate! ${squaresPerSide} is too large`)
+    } renderNewGrid(squaresPerSide);
 });
 
 
@@ -17,8 +19,13 @@ for (let i = 0; i < 256; i++) {
     container.appendChild(newDiv);
 
     newDiv.addEventListener('mouseover', () => {
-        newDiv.setAttribute('style', 'background-color: orange;')});
-    }
+        let a = Math.floor(Math.random() * 256)
+        let b = Math.floor(Math.random() * 256)
+        let c = Math.floor(Math.random() * 256)
+
+        newDiv.style.backgroundColor = `rgb(${a}, ${b}, ${c})`;
+    })
+}
 
 function renderNewGrid(num) {
     const removedDivs = document.querySelectorAll(".gridBox");
@@ -35,8 +42,12 @@ function renderNewGrid(num) {
         container.appendChild(newDiv);
 
         newDiv.addEventListener('mouseover', () => {
-        newDiv.style.backgroundColor = "orange";
-    })
+            let a = Math.floor(Math.random() * 256)
+            let b = Math.floor(Math.random() * 256)
+            let c = Math.floor(Math.random() * 256)
+
+            newDiv.style.backgroundColor = `rgb(${a}, ${b}, ${c})`;
+        })
     }
 }
 
