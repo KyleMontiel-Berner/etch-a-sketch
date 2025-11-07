@@ -4,11 +4,13 @@ let button = document.createElement("button");
 container.appendChild(button);
 button.textContent = "Click Me!"
 
-for (let i = 0; i < 252; i++) {
+for (let i = 0; i < 256; i++) {
     let newDiv = document.createElement("div");
     newDiv.classList.add("gridBox");
     container.appendChild(newDiv);
 };
+
+//Add new styling functionality based on user input. Change flex-basis and height (make sure to take gap into account)//
 
 button.addEventListener('click', ()=> {
     let userInput = prompt("How many squares per side?");
@@ -23,7 +25,7 @@ function renderNewGrid(num) {
         div.remove();
     });
 
-    for (let i = num; i < (num * num); i++) {
+    for (let i = 0; i < (num * num); i++) {
         let newDiv = document.createElement("div");
         newDiv.classList.add("gridBox");
         container.appendChild(newDiv);
